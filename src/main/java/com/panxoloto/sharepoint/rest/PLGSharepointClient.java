@@ -101,6 +101,13 @@ public interface PLGSharepointClient {
 	Resource downloadFile(String fileServerRelativeUrl) throws Exception;
 
 	/**
+	 * @param fileServerRelativeUrl
+	 * @return
+	 * @throws Exception
+	 */
+	void downloadFile(String fileServerRelativeUrl, String localPath) throws Exception;
+
+	/**
 	 * @param folder
 	 * @param resource
 	 * @param jsonMetadata

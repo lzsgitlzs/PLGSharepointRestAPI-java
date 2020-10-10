@@ -1,5 +1,7 @@
 package com.panxoloto.sharepoint.rest;
 
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
@@ -291,6 +293,25 @@ public class PLGSharepointClientOnline implements PLGSharepointClient {
 
 	    ResponseEntity<Resource> response = restTemplate.exchange(requestEntity, Resource.class);
 	    return response.getBody();
+	}
+
+	/**
+	 *
+	 * @param fileServerRelativeUrl
+	 * @param localPath
+	 * @throws Exception
+	 */
+	public void downloadFile(String fileServerRelativeUrl,String localPath) throws Exception {
+		InputStream input = downloadFile(fileServerRelativeUrl).getInputStream();
+		int index;
+		byte[] bytes = new byte[2048];
+		FileOutputStream downloadFile = new FileOutputStream(localPath);
+		while ((index = input.read(bytes)) != -1) {
+			downloadFile.write(bytes, 0, index);
+			downloadFile.flush();
+		}
+		downloadFile.close();
+		input.close();
 	}
 
 	/**

@@ -29,7 +29,7 @@ public class AuthTokenHelperOnline {
 	private String formDigestValue ;
 	private String domain;
 	private List<String> cookies;
-	private final String TOKEN_LOGIN_URL = "https://login.microsoftonline.com/extSTS.srf";
+	private final String TOKEN_LOGIN_URL = "https://login.partner.microsoftonline.cn/extSTS.srf";
 	private String payload = "<s:Envelope xmlns:s=\"http://www.w3.org/2003/05/soap-envelope\"\n"
 			+ "      xmlns:a=\"http://www.w3.org/2005/08/addressing\"\n"
 			+ "      xmlns:u=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\">\n"
